@@ -3,3 +3,6 @@ from django.urls import path
 
 # to get the HTTP request handling functions from the playground app: .../playground/...
 from . import views
+
+# URL configuration:
+urlpatterns = []
