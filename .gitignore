@@ -1,0 +1,16 @@
+.env
+
+# Database
+db.sqlite3
+*.db
+
+# pycache folders and files
+*.pyc
+
+# temp files
+*.tmp
+cache/
+
+"*.pyc" 
+
+*.lock
