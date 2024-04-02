@@ -45,10 +45,11 @@ class Order(models.Model):
     )
 
 
-# 1to1 relationship: parent : Customer
 class Address(models.Model):
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
-    customer = models.OneToOneField(
-        Customer, on_delete=models.CASCADE, primary_key=True
-    )
+    # 1toMany relationship: parent: Customer
+    # 1 client to many addresses
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    # 1to1 relationship: parent : Customer
+    # customer = models.OneToOneField(Customer, on_delete=models.CASCADE, primary_key=True)
