@@ -1,12 +1,19 @@
 from django.db import models
 
 
+class Collection(models.Model):
+    title = models.CharField(max_length=255)
+
+
 class Product(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     inventory = models.IntegerField()
     last_updated = models.DateTimeField(auto_now=True)
+    # 1toMany relationship: parent Collection
+    # one collection can have many products
+    collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
 
 
 class Customer(models.Model):
