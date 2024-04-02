@@ -18,6 +18,27 @@ text
 
 ---
 
+## Structure of the Data Model
+
+The best approach consists of 2 things:  
+- minimal coupling between apps
+- high cohesion in each app  
+
+By having a smaller number of apps, we decrease the need for coupling (while trying to avoid piling functionalities, which leads to the creation of a monolith-like structure).  
+
+By not having only one app (a monolith) that does it all, we increase the cohesion of each separate app.  
+
+It becomes obvious that there is a **fine line between these two things**, and the balance is not always clear. 
+
+#### Our Data Structure:
+
+So here, we decided on the following:
+- store app: cart, cart items, order, customer, collections, products:  
+  because all of these items are strongly related to one another
+- tag app: for generic relationships (usable independently)
+
+---
+
 ## Introduction to MYSQL
 
 Here I only just touched the surface of Databases. Installing MYSQL and DataGrip and creating a new database in DataGrip.  
