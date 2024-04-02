@@ -20,11 +20,13 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+import debug_toolbar
 
 # URL configuration:
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # read the following like this: 
+    # read the following like this:
     # any URL that starts with 'playground/" should be ROUTED to the playground app"
-    path('playground/', include('playground.urls)),
+    path("playground/", include("playground.urls")),
+    path("__debug__", include(debug_toolbar.urls)),
 ]
