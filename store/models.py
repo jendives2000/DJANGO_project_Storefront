@@ -50,6 +50,9 @@ class Order(models.Model):
     payment_status = models.CharField(
         max_length=1, choices=PAYMENT_STATUSES_CHOICES, default=PAYMENT_PENDING
     )
+    # 1toM relationship: parent: Customer
+    # one customer can have many Orders
+    customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
 
 class Address(models.Model):
