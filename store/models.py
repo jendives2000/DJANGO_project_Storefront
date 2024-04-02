@@ -8,6 +8,11 @@ class Promotion(models.Model):
 
 class Collection(models.Model):
     title = models.CharField(max_length=255)
+    # 1toM relationship: parent Product BUT !!! as a Parent, Product SHOULD HAVE BEEN positioned before this, Collection class.
+    # This is why it is written in "" as in "Product"
+    featured_product = models.ForeignKey(
+        "Product", on_delete=models.SET_NULL, null=True, related_name="+"
+    )
 
 
 class Product(models.Model):
