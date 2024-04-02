@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 
 
-class LikedItems(models.Model):
+class LikedItem(models.Model):
     # 1toM relationship: parent: User (above import)
     # one user can have many LikedItem
     user = models.ForeignKey(User, on_delete=models.CASCADE)
