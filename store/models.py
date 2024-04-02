@@ -75,3 +75,7 @@ class OrderItem(models.Model):
     quantity = models.PositiveSmallIntegerField()
     # unit_price is here to capture the price AT THE TIME the order is made
     unit_price = models.DecimalField(decimal_places=6, decimal_places=2)
+
+
+class Cart(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
