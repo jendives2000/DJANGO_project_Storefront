@@ -1,6 +1,11 @@
 from django.db import models
 
 
+class Promotion(models.Model):
+    description = models.CharField(max_length=255)
+    discount = models.FloatField()
+
+
 class Collection(models.Model):
     title = models.CharField(max_length=255)
 
@@ -14,6 +19,9 @@ class Product(models.Model):
     # 1toMany relationship: parent Collection
     # one collection can have many products
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
+    # MtoM relationship: parent: Promotion
+    # many promotions can have many products and vice versa
+    promotions = models.ManyToManyField(Promotion, related_name="promoted_products")
 
 
 class Customer(models.Model):
