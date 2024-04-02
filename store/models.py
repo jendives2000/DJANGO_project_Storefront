@@ -63,3 +63,15 @@ class Address(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     # 1to1 relationship: parent : Customer
     # customer = models.OneToOneField(Customer, on_delete=models.CASCADE, primary_key=True)
+
+
+class OrderItem(models.Model):
+    # 1toM relationship: parent: Order
+    # 1 order can have many OrderItems
+    order = models.ForeignKey(Order, on_delete=models.PROTECT)
+    # 1toM relationship: parent: product
+    # 1 product can have many OrderItems
+    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    quantity = models.PositiveSmallIntegerField()
+    # unit_price is here to capture the price AT THE TIME the order is made
+    unit_price = models.DecimalField(decimal_places=6, decimal_places=2)
