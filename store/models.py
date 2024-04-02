@@ -79,3 +79,13 @@ class OrderItem(models.Model):
 
 class Cart(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class CartItem(models.Model):
+    # 1toM relationship: parent: Cart
+    # 1 cart can have many CartItem
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    # 1toM relationship: parent: product
+    # 1 product can have many CartItem
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveSmallIntegerField()
