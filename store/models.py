@@ -49,15 +49,11 @@ class Customer(models.Model):
     membership = models.CharField(
         max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE
     )
+
     # this class enables us to customize further the customer DB
     class Meta:
-        db_table = 'store_customer'
-        indexes = [
-            models.Index(fields=['first_name', 'last_name])
-        ]
-
-        
-        
+        db_table = "store_customer"
+        indexes = [models.Index(fields=["last_name", "first_name"])]
 
 
 class Order(models.Model):
