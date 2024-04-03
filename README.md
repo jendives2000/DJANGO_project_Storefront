@@ -44,6 +44,23 @@ So here, we decided on the following:
 Here I only just touched the surface of Databases. Installing MYSQL and DataGrip and creating a new database in DataGrip.  
 Why DataGrip? Just because the course I am following is using it. But MYSQL Workbench is an alternative (though less optimal, according to the course). 
 
+#### Windows Environment Variables
+
+I had to fix an error generated after I installed MySQL. In VsCode terminal (powershell) the `mysql` command returned an error saying it was not valid.  
+After I researched the issue, I found the answer and fixed it by adding the mysql path as a new path in my Windows environment variables.  
+This is the last line in this screenshot:
+
+![alt text](image-1.png)
+
+Once fixed I was then able to connect my mysql server to my app project. So my database migrations now show up in the database I setup previously, and visually available in DataGrip:
+
+![alt text](image.png)
+
+#### Database Password
+
+I tried using again the dotenv module to hide the database password in the .env file. This generates errors when running the server (`python manage.py runserver`), but at least the password is not public in my github repository.  
+This inefficient way of hiding it before I commit to the repo  is what I found so far, and I'll use it until I have a better option. 
+
 --- 
 
 ## Title 3
