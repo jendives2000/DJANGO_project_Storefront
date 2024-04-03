@@ -61,6 +61,14 @@ Once fixed I was then able to connect my mysql server to my app project. So my d
 I tried using again the dotenv module to hide the database password in the .env file. This generates errors when running the server (`python manage.py runserver`), but at least the password is not public in my github repository.  
 This inefficient way of hiding it before I commit to the repo  is what I found so far, and I'll use it until I have a better option. 
 
+#### 1000 Dummy Customers
+
+Using mockeroo.com I quickly created a sql file that complies with my data models, listing a 1000 fake customers. 
+
+I then just populated my database with that list using DataGrip. This took 10 seconds. I checked it by counting the entries: 
+
+![alt text](image-2.png)
+
 --- 
 
 ## Title 3
