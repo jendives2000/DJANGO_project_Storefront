@@ -88,11 +88,14 @@ WSGI_APPLICATION = "storefront.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
+mysql_password = os.getenv("MySQL_PASSWORD")
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "db_storefront",
+        "HOST": "localhost",
+        "USER": "root",
+        "PASSWORD": "mysql_password",
     }
 }
 
